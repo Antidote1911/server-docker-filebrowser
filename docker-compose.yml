@@ -1,0 +1,15 @@
+services:
+    filebrowser:
+        image: filebrowser/filebrowser:s6
+        container_name: filebrowser
+        volumes:
+        - /:/srv
+        - /mnt/Partage/Logiciels/filebrowser/config:/config
+        - /mnt/Partage/Logiciels/filebrowser/database:/database:rw
+        environment:
+        - PUID=0
+        - PGID=0
+        ports:
+        - 8630:80
+        restart: always
+        
